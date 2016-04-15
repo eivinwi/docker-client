@@ -1,23 +1,28 @@
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.*;
 
+@SpringBootApplication
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-        loadProperties();
-        String url = System.getProperty("team.url");
+        //System.out.println("Hello World!");
+        SpringApplication.run(Main.class, args);
+        //loadProperties();
+        /*String url = System.getProperty("team.url");
         try {
-            sendGet(url);
+            //sendGet(url);
         } catch (Exception e) {
             System.err.println("Something went wrong: " + e);
-        }
+        }*/
     }
 
-
+/*
     private static void loadProperties() {
         Properties prop = new Properties();
         InputStream input = null;
@@ -46,7 +51,7 @@ public class Main {
             }
         }
     }
-
+*/
 
     // HTTP GET request
     private static void sendGet(String url) throws Exception {

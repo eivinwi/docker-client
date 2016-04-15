@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Docker Client</title>
-
     <script type="text/javascript">
         function setCookie(cname, cvalue, exdays) {
+            if (cvalue === undefined || cvalue === null || cvalue === '') {
+                alert('Mangler navn!');
+                return false;
+            }
             var d = new Date();
             d.setTime(d.getTime() + (exdays*24*60*60*1000));
             var expires = "expires="+d.toUTCString();
             document.cookie = cname + "=" + cvalue + "; " + expires;
+            return true;
         }
         function getCookie(cname) {
             var name = cname + "=";
@@ -20,19 +25,24 @@
             }
             return "";
         }
+        function setTeamName() {
+            var name = getCookie('name');
+            document.getElementById('name').value = name;
+            document.getElementById('name').setAttribute('readonly','readonly');
+        }
     </script>
 </head>
 
-<body onload="getCookie('name')">
+<body onload="setTeamName()">
     <div>
         <h1>Hei</h1>
-        <form action="/apply" method="post" onsubmit="setCookie('name', document.getElementsById('name').value, 100)">
+        <form action="/apply" method="post" onsubmit="setCookie('name', document.getElementById('name').value, 100);">
             <div class="form-group">
                 <label for="name">Team navn</label>
                 <input id="name" name="name" type="text"/>
             </div>
             <div class="form-group">
-                <input type="submit" value="Apply"/>
+                <input type="submit" value="submit" />
             </div>
         </form>
     </div>
