@@ -3,24 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Docker Client</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript">
+        function lastNavn() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "/teamName/", true);
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                    var teamName = xmlhttp.response;
+                    console.log(teamName);
+                    var lag = document.getElementById('lag');
+                    lag.innerHTML = teamName;
+                    if (teamName !== undefined && teamName !== null && teamName !== 'changeit') {
+                        document.getElementById('feilmelding').setAttribute('class','hidden');
+                        document.getElementById('form').setAttribute('class','visible');
+                    }
+                }
+            };
+            xmlhttp.send();
+        }
+    </script>
 </head>
 
-<body>
+<body onload="lastNavn();">
     <div>
-        <h1>Hei</h1>
-        <form action="/apply" method="post">
+        <h1>Hei, <span id="lag">&lt;lagnavn&gt;</span></h1>
+        <form id="form" action="/apply" method="post" class="hidden">
             <div class="form-group">
-<<<<<<< Updated upstream
-                <label for="name">team.Team navn</label>
-                <input id="name" name="name" type="text"/>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="submit" />
-=======
                 <input type="submit" value="Trykk her for &aring; fullf&oslash;re steget" />
->>>>>>> Stashed changes
             </div>
         </form>
+        <p id="feilmelding" class="visible">
+            Mangler &aring; definere lagnavn i team.properties!
+        </p>
     </div>
 
 <script>
