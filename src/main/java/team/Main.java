@@ -1,3 +1,5 @@
+package team;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -5,7 +7,6 @@ import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.*;
 
 @SpringBootApplication
 public class Main {
@@ -28,7 +29,7 @@ public class Main {
         InputStream input = null;
         try {
             String filename = "team.properties";
-            input = Main.class.getClassLoader().getResourceAsStream(filename);
+            input = team.Main.class.getClassLoader().getResourceAsStream(filename);
             if (input == null) {
                 System.out.println("Sorry, unable to find " + filename);
                 return;
