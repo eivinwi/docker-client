@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Docker Workshop - CheatSheet</title>
+
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="../style.css"/>-->
+
+    <script src="/webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Forklaring av begreper, og nyttige kommandoer.</h1>
+
+    <h2>Konsepter</h2>
+    <p><b>Docker Engine</b> er kjernen av Docker. Engine lar deg bygge isolerte beholdere som inneholder programmet ditt,
+        eller hva som helst du har lyst til å kjøre. Dette gjør den ved å kjøre en veldig nedstrippet og spesialisert versjon av linux.</p>
+
+    <p><b>Docker Machine</b> er et verktøy for deployment og automatisering av docker.</p>
+    <p><b>Docker Swarm</b> er en måte å bygge clustere på.</p>
+
+    <p>Et <b>Image</b> er en read-only template som kan brukes til å lage Containers.
+        Et eksempel på et Image kan inneholde en versjon av Ubuntu, en installasjon av Apache, og en web-applikasjon. </p>
+    <p>En <b>Container</b> er en instanst av et image. En container er en helt isolert applikasjonsplattform, som inneholder programmer som skal kjøres, og alle nødvendige dependencies.</p>
+
+
+    <h2>Docker Engine: nyttige lenker</h2>
+
+    <div>
+        <a href="https://github.com/wsargent/docker-cheat-sheet">Docker commands cheatsheet</a>
+    </div>
+    <div>
+        <a href="https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/">Dockerfile best practices</a>
+    </div>
+
+
+    <h2>Docker Engine: kommandoer</h2>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Kommando</th>
+                <th>Effekt</th>
+            </tr>
+        </thead>
+        <tr><td>docker images</td><td>viser alle tilgjengelige images (som er bygget eller nedlastet)</td></tr>
+        <tr><td>docker ps</td><td>viser alle kjørende docker containere</td></tr>
+        <tr><td>docker build -t &ltname&gt &ltdir&gt</td><td>leser og bygger Dockerfile fra spesifisert directory</td></tr>
+        <tr><td>docker run &ltimage&gt &ltparams....&gt</td><td>kjører spesifisert docker-image med parametere</td></tr>
+        <tr><td>docker inspect &ltimagenavn / containerid&gt</td><td>viser nyttig informasjon om image/container</td></tr>
+        <tr><td>docker rmi -f &ltimagenavn / containerid&gt</td><td>fjerner spesifisert image</td></tr>
+    </table>
+
+</div>
+</body>
+</html>

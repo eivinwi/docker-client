@@ -1,60 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Docker Workshop - steg 1</title>
-
-    <link rel="stylesheet" href="/webjars/bootstrap/3.3.6/css/bootstrap.min.css">
-    <!--<link rel="stylesheet" type="text/css" href="../style.css"/>-->
-
-    <script src="/webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <title>Docker Client</title>
+    <link rel="stylesheet" type="text/css" href="../style.css"/>
+    <script type="text/javascript">
+        function lastNavn() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "/teamName/", true);
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                    var teamName = xmlhttp.response;
+                    console.log(teamName);
+                    var lag = document.getElementById('lag');
+                    lag.innerHTML = teamName;
+                    if (teamName !== undefined && teamName !== null && teamName !== 'changeit') {
+                        document.getElementById('feilmelding').setAttribute('class','hidden');
+                        document.getElementById('form').setAttribute('class','visible');
+                    }
+                }
+            };
+            xmlhttp.send();
+        }
+    </script>
 </head>
-<body>
-<div class="container">
 
-    <h1>Installasjon og kjøring av Docker</h1>
-
-    <p>
-        Hvordan docker installerer er forskjellig avhengig av operativsystem. Installasjon
-        og bruk av Docker er noe enklere og krever færre steg på Linux, men man kan også fint
-        bruke Mac eller Windows. Lenker til de separate installasjonsinnstruksene finnes i tabellen under.
+<body onload="lastNavn();">
+<div>
+    <h1>Hei, <span id="lag">&lt;lagnavn&gt;</span></h1>
+    <form id="form" action="/apply" method="post" class="hidden">
+        <div class="form-group">
+            <input type="submit" value="Trykk her for &aring; fullf&oslash;re steget" />
+        </div>
+    </form>
+    <p id="feilmelding" class="visible">
+        Mangler &aring; definere lagnavn i team.properties!
     </p>
-
-    <table id="oversikt" class="table">
-        <thead>
-            <tr>
-                <td>Operativsystem</td>
-                <td>Informasjon</td>
-            </tr>
-        </thead>
-        <tr>
-            <td><a href="linux.html">Linux</a></td>
-            <td>
-                <div>Forholdsvis rett frem installasjon.</div>
-                <div>Krever 64-bits versjon av Linux.</div>
-                <div>Ikke installer direkte fra package-managere som Apt/Yum/Pacman da versjonene der ofte er utdaterte.</div>
-            </td>
-        </tr>
-        <tr>
-            <td><a href="mac.html">Mac</a></td>
-            <td>
-                <div>Noen flere steg, men fortsatt en enkel installasjon.</div>
-                <div>Krever minst OS X 10.8 “Mountain Lion”.</div>
-                <div>Krever Virtualbox (Dersom du har Virtualbox installer fra før, ikke huk av på installering av Virtualbox under installasjonen)</div>
-            </td>
-        </tr>
-        <tr>
-            <td><a href="windows.html">Windows</a></td>
-            <td>
-                <div>Litt flere steg enn på Linux/Mac, men selve installasjonen er relativt grei.</div>
-                <div>Krever minst Windows 7.</div>
-                <div>Krever 64-bits Windows.</div>
-                <div>Krever at Virtualization er aktivert i BIOS. (kan sjekkes i Oppgavebehandling -> Ytelse)</div>
-                <div>Krever Virtualbox (Dersom du har Virtualbox installer fra før, ikke huk av på installering av Virtualbox under installasjonen)</div>
-            </td>
-        </tr>
-    </table>
 </div>
+
+<script>
+
+</script>
 </body>
+
 </html>
