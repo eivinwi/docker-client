@@ -1,4 +1,4 @@
-package team;
+package no.kantega.dockerworkshop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

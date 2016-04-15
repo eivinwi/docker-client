@@ -1,4 +1,9 @@
-package team;
+package no.kantega.dockerworkshop;
+
+import java.time.Duration;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import java.time.Duration;
 import java.time.Instant;

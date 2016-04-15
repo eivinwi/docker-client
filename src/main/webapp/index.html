@@ -3,46 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Docker Client</title>
-    <script type="text/javascript">
-        function setCookie(cname, cvalue, exdays) {
-            if (cvalue === undefined || cvalue === null || cvalue === '') {
-                alert('Mangler navn!');
-                return false;
-            }
-            var d = new Date();
-            d.setTime(d.getTime() + (exdays*24*60*60*1000));
-            var expires = "expires="+d.toUTCString();
-            document.cookie = cname + "=" + cvalue + "; " + expires;
-            return true;
-        }
-        function getCookie(cname) {
-            var name = cname + "=";
-            var ca = document.cookie.split(';');
-            for(var i=0; i<ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0)==' ') c = c.substring(1);
-                if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
-            }
-            return "";
-        }
-        function setTeamName() {
-            var name = getCookie('name');
-            document.getElementById('name').value = name;
-            document.getElementById('name').setAttribute('readonly','readonly');
-        }
-    </script>
 </head>
 
-<body onload="setTeamName()">
+<body>
     <div>
         <h1>Hei</h1>
-        <form action="/apply" method="post" onsubmit="setCookie('name', document.getElementById('name').value, 100);">
+        <form action="/apply" method="post">
             <div class="form-group">
+<<<<<<< Updated upstream
                 <label for="name">team.Team navn</label>
                 <input id="name" name="name" type="text"/>
             </div>
             <div class="form-group">
                 <input type="submit" value="submit" />
+=======
+                <input type="submit" value="Trykk her for &aring; fullf&oslash;re steget" />
+>>>>>>> Stashed changes
             </div>
         </form>
     </div>

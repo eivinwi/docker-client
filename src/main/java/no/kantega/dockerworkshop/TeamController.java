@@ -1,4 +1,4 @@
-package team;
+package no.kantega.dockerworkshop;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
