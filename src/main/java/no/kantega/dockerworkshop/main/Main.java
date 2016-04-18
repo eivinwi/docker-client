@@ -1,14 +1,24 @@
-package no.kantega.dockerworkshop;
+package no.kantega.dockerworkshop.main;
 
+import no.kantega.dockerworkshop.donotchange.TaskChecker;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-@SpringBootApplication
+//@SpringBootApplication
+@Configuration
+@EnableAutoConfiguration
+@PropertySource("classpath:team.properties")
+@ComponentScan(basePackages = {"no.kantega.dockerworkshop.main", "no.kantega.dockerworkshop.donotchange"})
 public class Main {
 
     public static void main(String[] args) {
@@ -21,6 +31,11 @@ public class Main {
         } catch (Exception e) {
             System.err.println("Something went wrong: " + e);
         }*/
+    }
+
+    @Bean
+    public TaskChecker taskChecker() {
+        return new TaskChecker();
     }
 
 /*

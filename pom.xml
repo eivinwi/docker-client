@@ -61,7 +61,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>no.kantega.dockerworkshop.Main</mainClass>
+                            <mainClass>no.kantega.dockerworkshop.main.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

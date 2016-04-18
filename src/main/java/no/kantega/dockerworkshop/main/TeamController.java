@@ -1,15 +1,13 @@
-package no.kantega.dockerworkshop;
+package no.kantega.dockerworkshop.main;
 
-import java.io.BufferedReader;
 import java.io.DataOutputStream;
-import java.io.InputStreamReader;
 import java.net.URL;
-import java.time.Instant;
-import java.util.*;
+import java.util.Arrays;
 
+import no.kantega.dockerworkshop.donotchange.TaskChecker;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +18,6 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-@PropertySource("classpath:team.properties")
 public class TeamController implements InitializingBean {
 
     @Value("${team.name}")
@@ -30,10 +27,29 @@ public class TeamController implements InitializingBean {
 
     private String name;
 
+    private TaskChecker taskChecker;
+
+    @Autowired
+    public TeamController(TaskChecker taskChecker) {
+        this.taskChecker = taskChecker;
+    }
+
     public void afterPropertiesSet() {
         //trengs ikke?
     }
 
+
+    @RequestMapping(value = "/test")
+    @ResponseBody
+    public boolean test(HttpServletRequest request) {
+        boolean test = taskChecker.inspectDockerImage(
+            "testscripts",
+            Arrays.asList("Config", "Entrypoint"),
+            Arrays.asList("uname", "-a")
+        );
+        System.out.println("It is.... " + test);
+        return test;
+    }
 
     @RequestMapping(value = "/apply", method = RequestMethod.POST)
     public void apply(HttpServletRequest request) {
