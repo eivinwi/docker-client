@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Docker Workshop - Modifiser Docker</title>
+
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!--link rel="stylesheet" type="text/css" href="../style.css"/-->
+
+    <script src="/webjars/jquery/2.2.3/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Modifisering av Dockerfile</h1>
+    <p>
+        Til nå har vi bare brukt en veldig enkel dockerfil, som baserer seg på et eksisterende image,
+        legger til en fil og deretter kjører denne ved oppstart. Det er mye mer man kan gjøre ved opprettelsen
+        av images, og i denne oppgaven skal vi se på noen av dem.
+    </p>
+    <p>
+        Hva som skal være inkludert i vårt ferdige docker-image kan styres ved å forandre hvilket image vi baserer oss på.
+        Hittil har vi basert dockerfilen på <a href="https://hub.docker.com/_/alpine/">Alpine</a>, som et ekstremt nedstrippet image.
+        Dette har fordelen at vi får små containere, men den mangler noen grunnleggende ting, for eksempel bash og Java.
+    </p>
+
+    <h2>a)</h2>
+    <p>
+        Endre Dockerfile slik at den legger til scriptet "hei.sh", og kjører dette ved oppstart. Observer at dette feiler,
+        ettersom programmet bash ikke finnes i imaget.
+    </p>
+    <a href="https://docs.docker.com/engine/userguide/containers/dockerimages/">Docker Docs - Images</a>
+    <a href="https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/">Dockerfile Best Practices</a>
+
+    <h2>b)</h2>
+    <p>
+        Bruk Dockers søke-kommando for å finne det offisielle java-imaget, og endre din Dockerfile slik at den baserer
+        seg på dette. Bygg og kjør fra Dockerfile på nytt, og observer at containeren nå har tilgang på bash-programmet,
+        og at scriptet blir kjørt!
+    </p>
+
+    <br/><a class="btn btn-primary" href="../index.html">Tilbake</a>
+</div>
+
+
+</body>
+</html>

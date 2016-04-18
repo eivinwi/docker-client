@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Docker Workshop - Clouds</title>
+
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!--link rel="stylesheet" type="text/css" href="../style.css"/-->
+
+    <script src="/webjars/jquery/2.2.3/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>To the Clouds!</h1>
+    <p>
+        Som nevnt i introen er en av fordelen med Docker containers er at de er "self-contained", at de har med seg alle
+        sine dependencies, og derfor (i teorien) kan kjøres overalt hvor docker er installert. Dette gjør programmer bygget
+        på Docker ekstremt portable.
+    </p>
+
+    <p>
+        For å flytte et docker image fra et miljø til et annet, kan man lagre det til en fil, flytte filen til det
+        nye miljøet, og deretter laste det inn der.
+    </p>
+    <a href="https://docs.docker.com/engine/reference/commandline/save/">Docker-maven-plugin</a>
+    <a href="https://docs.docker.com/engine/reference/commandline/load/">Docker-maven-plugin</a>
+
+    <br/><a class="btn btn-primary" href="../index.html">Tilbake</a>
+</div>
+
+
+</body>
+</html>
