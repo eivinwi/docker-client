@@ -25,15 +25,20 @@
         Bygg jar-filen med kommandoen 'mvn clean install'. Endre Dockerfile slike at den nå legger til jar-filen,
         og eksekverer jar-filen på oppstart. Bygg og kjør så docker containeren på samme måte som i forrige oppgave.
     </p>
-    <a href="https://docs.docker.com/engine/userguide/containers/dockerimages/">Docker Docs - Images</a>
-    <p>Todo: link forklaring jar, maven</p>
 
     <h2>b)</h2>
     <p>
         Istedenfor å manuelt bygge docker imaget på nytt hver gang Maven har kjørt, kan vi få Maven til å bygge
         det automatisk. Legg til maven-docker-plugin i pom.xml, slik at Maven kan bygge imaget for oss automatisk.
     </p>
-    <a href="https://github.com/spotify/docker-maven-plugin">Docker-maven-plugin</a>
+
+
+    <h2>Nyttige lenker</h2>
+    <ul>
+        <li><a href="https://docs.docker.com/engine/userguide/containers/dockerimages/">Docker Docs - Images</a></li>
+        <li><a href="https://github.com/spotify/docker-maven-plugin">Docker-maven-plugin</a></li>
+        <li>Todo: link forklaring av jar, maven.</li>
+    </ul>
 
     <br/><a class="btn btn-primary" href="../index.html">Tilbake</a>
 </div>

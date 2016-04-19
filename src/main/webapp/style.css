@@ -17,3 +17,11 @@
     color: white;
     font-weight: bold;
 }
+
+li{
+    margin: 10px 0;
+}
+
+ul{
+    margin: 20px 0;
+}

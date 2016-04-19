@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Docker Workshop - Custom Images</title>
+    <title>Docker Workshop - Volumes & Database</title>
 
     <link rel="stylesheet" href="/webjars/bootstrap/3.3.6/css/bootstrap.min.css">
     <!--link rel="stylesheet" type="text/css" href="../style.css"/-->
@@ -13,13 +13,18 @@
 </head>
 <body>
 <div class="container">
-    <h1>Lage egne Docker images</h1>
+    <h1>Docker volumer og databaser</h1>
     <p>
-        Å kjøre ferdig-lagde images er jo fint og flott, men for at ting skal bli virkelig spennende må man
-        lage sine egne images! Endre Dockerfile i mappen docker, slik at containeren kjører linux-kommandoen "echo" med
-        argumentet "Hello World, this is Docker!" når den starter opp.
+        Ettersom docker-containere blir borte når de stoppes, er de ut av boksen særdeles lite egnet til å kjøre databaser.
+
+        TODO.
+
+        Docker Hub har offisielle images av de fleste populære databaser som for eksempel MySQL, PostgreSQL og MongoDB.
     </p>
-    <a href="https://docs.docker.com/engine/userguide/containers/dockerimages/">Docker Docs - Images</a>
+
+    <ul>
+        <li><a href="https://docs.docker.com/engine/userguide/containers/dockervolumes/">Docker Docs - Volumes</a> </li>
+    </ul>
 
     <br/><a class="btn btn-primary" href="../index.html">Tilbake</a>
 </div>
