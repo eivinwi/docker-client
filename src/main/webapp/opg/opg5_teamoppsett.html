@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Docker Workshop - Teamoppsett</title>
 
-    <link rel="stylesheet" href="/webjars/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/webjars/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
     <!--link rel="stylesheet" type="text/css" href="../style.css"/-->
     <script src="/webjars/jquery/2.2.3/jquery.min.js"></script>
-    <script src="/webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="/webjars/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
         function lastNavn() {
@@ -28,13 +28,20 @@
             };
             xmlhttp.send();
         }
+
+        $(document).ready(function () {
+            $('#navigation').load('../navbar.html');
+        });
     </script>
 </head>
 
 <body onload="lastNavn();">
+
+<div id="navigation"></div>
+
 <div class="container">
     <h1>Teamoppsett</h1>
-    <h2>Hei, <span id="lag">&lt;lagnavn&gt;</span></h2>
+    <h2 class="display-3">Hei, <span id="lag">&lt;lagnavn&gt;</span></h2>
     <form id="form" action="/apply" method="post" class="hidden">
         <div class="form-group">
             <input type="submit" value="Trykk her for &aring; fullf&oslash;re steget" />

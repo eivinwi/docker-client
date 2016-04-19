@@ -5,16 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Docker Workshop - CheatSheet</title>
 
-    <link rel="stylesheet" href="/webjars/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/webjars/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
     <!--<link rel="stylesheet" type="text/css" href="../style.css"/>-->
 
-    <script src="/webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="/webjars/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#navigation').load('./navbar.html');
+        });
+    </script>
 </head>
+
 <body>
+
+<div id="navigation"></div>
+
 <div class="container">
     <h1>Forklaring av begreper, og nyttige kommandoer.</h1>
 
-    <h2>Konsepter</h2>
+    <h2 class="display-3">Konsepter</h2>
     <p><b>Docker Engine</b> er kjernen av Docker. Engine lar deg bygge isolerte beholdere som inneholder programmet ditt,
         eller hva som helst du har lyst til å kjøre. Dette gjør den ved å kjøre en veldig nedstrippet og spesialisert versjon av linux.</p>
 
@@ -26,7 +35,7 @@
     <p>En <b>Container</b> er en instanst av et image. En container er en helt isolert applikasjonsplattform, som inneholder programmer som skal kjøres, og alle nødvendige dependencies.</p>
 
 
-    <h2>Docker Engine: nyttige lenker</h2>
+    <h2 class="display-3">Docker Engine: nyttige lenker</h2>
 
     <div>
         <a href="https://github.com/wsargent/docker-cheat-sheet">Docker commands cheatsheet</a>
@@ -36,7 +45,7 @@
     </div>
 
 
-    <h2>Docker Engine: kommandoer</h2>
+    <h2 class="display-3">Docker Engine: kommandoer</h2>
 
     <table class="table table-striped">
         <thead>

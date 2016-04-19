@@ -18,10 +18,11 @@
     font-weight: bold;
 }
 
-li{
+.space {
     margin: 10px 0;
 }
 
-ul{
-    margin: 20px 0;
+.dropdown-menu {
+    color: white;
+    background-color: blue;
 }

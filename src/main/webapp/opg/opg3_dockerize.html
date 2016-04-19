@@ -5,13 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Docker Workshop - Dockerize</title>
 
-    <link rel="stylesheet" href="/webjars/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/webjars/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
     <!--link rel="stylesheet" type="text/css" href="../style.css"/-->
 
     <script src="/webjars/jquery/2.2.3/jquery.min.js"></script>
-    <script src="/webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="/webjars/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#navigation').load('../navbar.html');
+        });
+    </script>
 </head>
 <body>
+
+<div id="navigation"></div>
+
 <div class="container">
     <h1>Dockerize</h1>
     <p>
@@ -20,20 +28,20 @@
         ved oppstart av containeren.
     </p>
 
-    <h2>a)</h2>
+    <h2 class="display-3">a)</h2>
     <p>
         Bygg jar-filen med kommandoen 'mvn clean install'. Endre Dockerfile slike at den nå legger til jar-filen,
         og eksekverer jar-filen på oppstart. Bygg og kjør så docker containeren på samme måte som i forrige oppgave.
     </p>
 
-    <h2>b)</h2>
+    <h2 class="display-3">b)</h2>
     <p>
         Istedenfor å manuelt bygge docker imaget på nytt hver gang Maven har kjørt, kan vi få Maven til å bygge
         det automatisk. Legg til maven-docker-plugin i pom.xml, slik at Maven kan bygge imaget for oss automatisk.
     </p>
 
 
-    <h2>Nyttige lenker</h2>
+    <h2 class="display-3">Nyttige lenker</h2>
     <ul>
         <li><a href="https://docs.docker.com/engine/userguide/containers/dockerimages/">Docker Docs - Images</a></li>
         <li><a href="https://github.com/spotify/docker-maven-plugin">Docker-maven-plugin</a></li>
