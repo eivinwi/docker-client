@@ -6,7 +6,7 @@
     <title>Docker Workshop - Swarm</title>
 
     <link rel="stylesheet" href="/webjars/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
-    <!--link rel="stylesheet" type="text/css" href="../style.css"/-->
+    <link rel="stylesheet" type="text/css" href="../style.css"/>
 
     <script src="/webjars/jquery/2.2.3/jquery.min.js"></script>
     <script src="/webjars/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
@@ -19,7 +19,9 @@
 
 <body>
 
-<div id="navigation"></div>
+<div class="nav-container">
+    <div id="navigation"></div>
+</div>
 
 <div class="container">
     <h1>Lage clustere med Docker Swarm</h1>
@@ -27,18 +29,18 @@
 
     </p>
 
-    <h2 class="display-3">a)</h2>
+    <h2>a)</h2>
     <p>
         Bruk docker-machine til å lage en Swarm med 2-3 noder og en Swarm Manager. Bruk "docker info" på swarm-manageren
         for å se status, med bl.a. hvor mange noder den inneholder.
     </p>
 
-    <h2 class="display-3">b)</h2>
+    <h2>b)</h2>
     <p>
         Kjør programmet på flere noder.
     </p>
 
-    <h2 class="display-3">Nyttige lenker</h2>
+    <h2>Nyttige lenker</h2>
     <ul>
         <li><a href="https://docs.docker.com/swarm/">Docker Docs - Swarm</a></li>
         <li><a href="https://docs.docker.com/swarm/provision-with-machine/">Provisioning a Swarm Cluster with Docker Machine</a></li>

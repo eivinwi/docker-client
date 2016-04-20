@@ -6,26 +6,29 @@
     <title>Docker Workshop - Clouds</title>
 
     <link rel="stylesheet" href="/webjars/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
-    <!--link rel="stylesheet" type="text/css" href="../style.css"/-->
+    <link rel="stylesheet" type="text/css" href="../style.css"/>
 
     <script src="/webjars/jquery/2.2.3/jquery.min.js"></script>
     <script src="/webjars/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('#navigation').load('../navbar.html');
-        });
+         });
     </script>
 </head>
-<body>
 
-<div id="navigation"></div>
+<body onload="lastNav()">
+
+<div class="nav-container">
+    <div id="navigation" ></div>
+</div>
 
 <div class="container">
     <h1>To the Clouds!</h1>
     <p>
         Som nevnt i introen er en av fordelen med Docker containers er at de er "self-contained", at de har med seg alle
-        sine dependencies, og derfor (i teorien) kan kjøres overalt hvor docker er installert. Dette gjør programmer bygget
-        på Docker ekstremt portable.
+        avhengigheter som trengs for å kjøre sin applikasjon. Containere kan derfor (i teorien) kjøres overalt hvor
+        docker er installert. Dette gjør programmer bygget på Docker ekstremt portable.
     </p>
 
     <p>
@@ -35,7 +38,7 @@
         Todo: oppsett av server(e) de kan laste opp til.
     </p>
 
-    <h2 class="display-3">Nyttige lenker</h2>
+    <h2>Nyttige lenker</h2>
     <ul>
         <li><a href="https://docs.docker.com/engine/reference/commandline/save/">Docker save</a></li>
         <li><a href="https://docs.docker.com/engine/reference/commandline/load/">Docker load</a></li>

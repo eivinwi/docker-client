@@ -6,7 +6,7 @@
     <title>Docker Workshop - Machine</title>
 
     <link rel="stylesheet" href="/webjars/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
-    <!--link rel="stylesheet" type="text/css" href="../style.css"/-->
+    <link rel="stylesheet" type="text/css" href="../style.css"/>
 
     <script src="/webjars/jquery/2.2.3/jquery.min.js"></script>
     <script src="/webjars/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
@@ -19,7 +19,9 @@
 
 <body>
 
-<div id="navigation"></div>
+<div class="nav-container">
+    <div id="navigation" ></div>
+</div>
 
 <div class="container">
     <h1>Docker Machine</h1>
@@ -32,19 +34,19 @@
         for å automatisk starte opp en server i skyen, installere og konfigurere docker på serveren og sette opp SSH med keypair!
     </p>
 
-    <h2 class="display-3">a)</h2>
+    <h2>a)</h2>
     <p>
         Bruk dockers create-kommando for å starte opp en Amazon AWS-server med utdelt API-key. Last deretter
         opp imaget laget i forrige oppgave.
     </p>
 
-    <h2 class="display-3">b)</h2>
+    <h2>b)</h2>
     <p>
         Bruk docker-machines innebygde ssh-kommando til å logge inn på serveren. Her kan man bruke samme docker-kommandoer
         som lokalt, for å verifisere at docker-containeren kjører!
     </p>
 
-    <h2 class="display-3">Nyttige lenker</h2>
+    <h2>Nyttige lenker</h2>
     <ul>
         <li><a href="https://docs.docker.com/machine/overview/">DockerMachine konsept</a></li>
         <li><a href="https://docs.docker.com/machine/get-started-cloud/">DockerMachine - Cloud</a></li>

@@ -22,7 +22,11 @@
     margin: 10px 0;
 }
 
-.dropdown-menu {
-    color: white;
-    background-color: blue;
+
+.nav-container {
+    height: 75px;
+}
+
+h1 {
+    padding-bottom: 10px;
 }

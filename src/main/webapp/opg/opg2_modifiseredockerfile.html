@@ -6,7 +6,7 @@
     <title>Docker Workshop - Modifiser Docker</title>
 
     <link rel="stylesheet" href="/webjars/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
-    <!--link rel="stylesheet" type="text/css" href="../style.css"/-->
+    <link rel="stylesheet" type="text/css" href="../style.css"/>
 
     <script src="/webjars/jquery/2.2.3/jquery.min.js"></script>
     <script src="/webjars/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
@@ -19,7 +19,9 @@
 
 <body>
 
-<div id="navigation"></div>
+<div class="nav-container">
+    <div id="navigation" ></div>
+</div>
 
 <div class="container">
     <h1>Modifisering av Dockerfile</h1>
@@ -34,28 +36,38 @@
         Dette har fordelen at vi får små containere, men den mangler noen grunnleggende ting, for eksempel bash og Java.
     </p>
 
-    <h2 class="display-3">a)</h2>
+    <h2>a)</h2>
     <p>
         Endre Dockerfile slik at den legger til scriptet "hei.sh", og kjører dette ved oppstart. Observer at dette feiler,
-        ettersom programmet bash ikke finnes i imaget.
+        ettersom programmet bash ikke finnes i imaget vi baserer oss på.
     </p>
 
 
-    <h2 class="display-3">b)</h2>
+    <h2>b)</h2>
     <p>
-        Bruk Dockers søke-kommando for å finne det offisielle java-imaget, og endre din Dockerfile slik at den baserer
-        seg på dette. Bygg og kjør fra Dockerfile på nytt, og observer at containeren nå har tilgang på bash-programmet,
+        Bruk Dockers søke-kommando for å finne det offisielle ubuntu-imaget, som inneholder bash, og endre din Dockerfile
+        slik at den baserer seg på dette. Bygg og kjør fra Dockerfile på nytt, og observer at containeren nå har tilgang på bash-programmet,
         og at scriptet blir kjørt!
     </p>
 
-    <h2 class="display-3">Nyttige lenker</h2>
+    <h2>c)</h2>
+    <p>
+        Det er også mulig å modifisere imaget ved å installere pakker. Bruk Ubuntus package manager APT via RUN-kommandoen
+        i Dockerfile til å installere pakken "curl". Denne blir da installert under byggingen av imaget, og vil være
+        tilgjengelig når containeren startes. Endre også Dockerfilen slik at den kjører &ltcurl -L www.google.com&gt
+        ved oppstart.
+
+        <b>NB: dersom docker har problemer med tilkobling til repositories kan det hjelpe å skru av VPN.</b>
+    </p>
+
+    <h2>Nyttige lenker</h2>
     <ul>
         <li><a href="https://docs.docker.com/engine/userguide/containers/dockerimages/">Docker Docs - Images</a></li>
         <li><a href="https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/">Dockerfile Best Practices</a></li>
+        <li><a href="https://help.ubuntu.com/community/AptGet/Howto">AptGet HowTo</a></li>
     </ul>
 
 </div>
-
 
 </body>
 </html>

@@ -6,7 +6,7 @@
     <title>Docker Workshop - Teamoppsett</title>
 
     <link rel="stylesheet" href="/webjars/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
-    <!--link rel="stylesheet" type="text/css" href="../style.css"/-->
+    <link rel="stylesheet" type="text/css" href="../style.css"/>
     <script src="/webjars/jquery/2.2.3/jquery.min.js"></script>
     <script src="/webjars/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
 
@@ -37,11 +37,19 @@
 
 <body onload="lastNavn();">
 
-<div id="navigation"></div>
+<div class="nav-container">
+    <div id="navigation" ></div>
+</div>
 
 <div class="container">
     <h1>Teamoppsett</h1>
-    <h2 class="display-3">Hei, <span id="lag">&lt;lagnavn&gt;</span></h2>
+
+    <p>
+        DockerClient inneholder en nesten komplett Java-applikasjon. Endre filen 'team.properties' slik at den inneholder
+        ditt/deres team-navn (må staves korrekt!). Last inn denne siden på nytt når dette er gjort.
+    </p>
+
+    <h3>Ditt lagnavn er: <span id="lag">&lt;lagnavn&gt;</span></h3>
     <form id="form" action="/apply" method="post" class="hidden">
         <div class="form-group">
             <input type="submit" value="Trykk her for &aring; fullf&oslash;re steget" />
@@ -50,10 +58,6 @@
     <p id="feilmelding" class="visible">
         Mangler &aring; definere lagnavn i team.properties!
     </p>
-
-    <button type="button" class="btn btn-default" aria-label="Left Align" href="../index.html">
-        Tilbake
-    </button>
 
 </div>
 <script>

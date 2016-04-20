@@ -6,13 +6,13 @@
     <title>Docker Workshop - Custom Images</title>
 
     <link rel="stylesheet" href="/webjars/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
-    <!--link rel="stylesheet" type="text/css" href="../style.css"/-->
+    <link rel="stylesheet" type="text/css" href="../style.css"/>
 
     <script src="/webjars/jquery/2.2.3/jquery.min.js"></script>
     <script src="/webjars/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#navigation').load('../navbar.html');
+            $('#navigation').load('../navbar.html').removeAttr("style");
         });
     </script>
 </head>
@@ -20,9 +20,11 @@
 
 <body>
 
-<div id="navigation"></div>
-
+<div class="nav-container">
+    <div id="navigation"></div>
+</div>
 <div class="container">
+
     <h1>Lage egne Docker images</h1>
     <p>
         Å kjøre ferdig-lagde images som hello-world fra installasjonsguiden er jo fint og flott, men for at ting skal bli
@@ -30,10 +32,13 @@
         linux-kommandoen "echo" med argumentet "Hello World, this is Docker!" når den starter opp.
     </p>
 
-    <h2 class="display-3">Nyttige lenker</h2>
+    <h2>Nyttige lenker</h2>
     <ul>
         <li><a href="https://docs.docker.com/engine/userguide/containers/dockerimages/">Docker Docs - Images</a></li>
     </ul>
+
+    <h3>Hint</h3>
+    <>
 
 </div>
 

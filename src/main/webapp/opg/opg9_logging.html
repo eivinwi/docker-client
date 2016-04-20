@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Docker Workshop - Logging</title>
+
+    <link rel="stylesheet" href="/webjars/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../style.css"/>
+
+    <script src="/webjars/jquery/2.2.3/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#navigation').load('../navbar.html');
+        });
+    </script>
+</head>
+
+<body>
+
+<div class="nav-container">
+    <div id="navigation"></div>
+</div>
+
+<div class="container">
+    <h1>Volumer og Logging</h1>
+    <p>
+        Et problem man gjerne støter på når man konverterer en eksisterende applikasjon til å kjøres i en docker-container
+        er hva man skal gjøre med log-filer. I en normal Java-applikasjon er logging relativt enkelt; velg et rammeverk
+        og sett opp en liten konfigurasjon, så er det bare å logge til fil. Selv om programmet avsluttes eller krasjer
+        så vil log-filene i de aller fleste tilfeller være inntakte.
+    </p>
+    <p>
+        Når man kjører programmet i en container derimot, så blir alle filer forandret i kjøretid forsvinne sammen med
+        containeren idet den termineres, noe som gjør log-filene betraktelig mindre hjelpsomme. Heldigvis finnes det en
+        løsning for dette. Faktisk finnes det flere løsninger, men den enkleste er å mounte et datavolum fra host-filsystemet,
+        og la loggene skrives til dette istedenfor det interne filsystemet i docker-containeren.
+    </p>
+
+    <h2>a)</h2>
+    <p>
+        Mount en mappe fra det lokale filsystemet til en mappe i docker-containeren, og la docker-containeren bruke
+        linux-kommandoen 'touch' for å opprette en fil der når den starter opp. Filen skal da dukke opp i host-filsystemet
+        når containeren startes opp, og persistere når containeren termineres!
+    </p>
+
+    <h2>b)</h2>
+    <p>
+        Det samme kan gjøres for log-filer . Åpne filen 'logback.xml', som inneholder logging-konfigurasjonene for DockerClient,
+        og endre pathen for loggene til mappen der du i oppgave 'a)' mountet datavolumet. Under kjøring vil docker nå
+        skrive filene til host-filsystemet.
+    </p>
+
+    <h2>Nyttige Lenker</h2>
+    <a href="https://docs.docker.com/engine/userguide/containers/dockervolumes/">Docker Volumes</a>
+
+</div>
+
+
+</body>
+</html>

@@ -6,7 +6,7 @@
     <title>Docker Workshop - Installasjon</title>
 
     <link rel="stylesheet" href="/webjars/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
-    <!--<link rel="stylesheet" type="text/css" href="../style.css"/>-->
+    <link rel="stylesheet" type="text/css" href="../style.css"/>
 
     <script src="/webjars/jquery/2.2.3/jquery.min.js"></script>
     <script src="/webjars/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
@@ -18,7 +18,9 @@
 </head>
 <body>
 
-<div id="navigation"></div>
+<div class="nav-container">
+    <div id="navigation"></div>
+</div>
 
 <div class="container">
 
@@ -43,7 +45,7 @@
                 <a href="https://docs.docker.com/machine/install-machine/">Linux DockerMachine</a>
             </td>
             <td>
-                <div>Enkel, rett frem installasjon. Separat installasjon for Docker-machine</div>
+                <div>Enkel, rett frem installasjon. Separat installasjon for Docker-machine.</div>
                 <div>Krever 64-bits versjon av Linux.</div>
                 <div>
                     <b>Ikke</b> installer direkte fra package-managere som Apt/Yum/Pacman da docker konstant oppdateres,
