@@ -13,6 +13,17 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#navigation').load('../navbar.html');
+
+            $('.task').each(function() {
+                var $id = $(this).attr("id");
+                var dataElem = {"task": $id};
+                $.ajax({
+                    url: '/check',
+                    data: { task: $id }
+                }).done(function(data) {
+                    $('#' + $id).append('<div>'+data+'</div>');
+                });
+            });
         });
     </script>
 </head>
@@ -30,13 +41,17 @@
         er ikke hverken smidig eller praktisk, og skalerer dårlig til store systemer. Docker-machine kan brukes for å
         automatisere dette.
 
-        Docker-machine støtter de fleste store hosting providers, og man trenger faktisk kun EN kommando i docker-machine
-        for å automatisk starte opp en server i skyen, installere og konfigurere docker på serveren og sette opp SSH med keypair!
-    </p>
 
+    </p>
     <h2>a)</h2>
+    <p>Todo: opprett en docker-machine</p>
+
+    <h2>b)</h2>
     <p>
-        Bruk dockers create-kommando for å starte opp en Amazon AWS-server med utdelt API-key. Last deretter
+        Docker-machine støtter de fleste store hosting providers, og man trenger faktisk kun <b>én</b> kommando i docker-machine
+        for å automatisk starte opp en server i skyen, installere og konfigurere docker på serveren og sette opp SSH med keypair!
+
+        Bruk docker-machines 'create' kommando for å starte opp en Amazon AWS-server med utdelt API-key. Last deretter
         opp imaget laget i forrige oppgave.
     </p>
 
@@ -45,6 +60,12 @@
         Bruk docker-machines innebygde ssh-kommando til å logge inn på serveren. Her kan man bruke samme docker-kommandoer
         som lokalt, for å verifisere at docker-containeren kjører!
     </p>
+
+    <div id="fremgang">
+        <h2>Fremgang</h2>
+        <div id="6a" class="task">a) </div>
+        <div id="6b" class="task">b) </div>
+    </div>
 
     <h2>Nyttige lenker</h2>
     <ul>

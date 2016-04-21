@@ -13,6 +13,17 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#navigation').load('../navbar.html');
+
+            $('.task').each(function() {
+                var $id = $(this).attr("id");
+                var dataElem = {"task": $id};
+                $.ajax({
+                    url: '/check',
+                    data: { task: $id }
+                }).done(function(data) {
+                    $('#' + $id).append('<div>'+data+'</div>');
+                });
+            });
         });
     </script>
 </head>

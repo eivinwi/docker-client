@@ -13,7 +13,18 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#navigation').load('../navbar.html');
-         });
+
+            $('.task').each(function() {
+                var $id = $(this).attr("id");
+                var dataElem = {"task": $id};
+                $.ajax({
+                    url: '/check',
+                    data: { task: $id }
+                }).done(function(data) {
+                    $('#' + $id).append('<div>'+data+'</div>');
+                });
+            });
+        });
     </script>
 </head>
 
@@ -37,6 +48,11 @@
 
         Todo: oppsett av server(e) de kan laste opp til.
     </p>
+
+    <div id="fremgang">
+        <h2>Fremgang</h2>
+        <div id="5" class="task">a) </div>
+    </div>
 
     <h2>Nyttige lenker</h2>
     <ul>

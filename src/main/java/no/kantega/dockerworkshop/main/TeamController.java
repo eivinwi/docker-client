@@ -12,11 +12,17 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * Hei!
+ * Meningen er at du skal løse oppgavene uten å se i denne filen.
+ * Ikke noe juks!
+ */
 @Controller
 public class TeamController implements InitializingBean {
 
@@ -37,7 +43,6 @@ public class TeamController implements InitializingBean {
     public void afterPropertiesSet() {
         //trengs ikke?
     }
-
 
     @RequestMapping(value = "/test")
     @ResponseBody
@@ -105,6 +110,13 @@ public class TeamController implements InitializingBean {
         System.out.println(response.toString());*/
     }
 
-
+    @ResponseBody
+    @RequestMapping(value = "/check", produces = MediaType.TEXT_PLAIN_VALUE)
+    public String checkTask(@RequestParam String task) {
+        if("4".equals(task)) {
+            return "changeit".equals(teamName)? "Teamnavn skal forandres" : "korrekt";
+        }
+        return taskChecker.checkTask(task);
+    }
 }
 

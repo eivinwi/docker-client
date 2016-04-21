@@ -3,7 +3,6 @@ package no.kantega.dockerworkshop.main;
 import no.kantega.dockerworkshop.donotchange.TaskChecker;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +13,6 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-//@SpringBootApplication
 @Configuration
 @EnableAutoConfiguration
 @PropertySource("classpath:team.properties")
@@ -37,37 +35,6 @@ public class Main {
     public TaskChecker taskChecker() {
         return new TaskChecker();
     }
-
-/*
-    private static void loadProperties() {
-        Properties prop = new Properties();
-        InputStream input = null;
-        try {
-            String filename = "team.properties";
-            input = team.Main.class.getClassLoader().getResourceAsStream(filename);
-            if (input == null) {
-                System.out.println("Sorry, unable to find " + filename);
-                return;
-            }
-            //load a properties file from class path, inside static method
-            prop.load(input);
-            List<String> list = Arrays.asList(prop.getProperty("team.name").split(","));
-            String name = list.get((new Random()).nextInt(list.size()));
-            System.setProperty("team.name", (name != null)? name : "n/a" );
-            System.setProperty("team.url", prop.getProperty("team.url"));
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        } finally {
-            if (input != null) {
-                try {
-                    input.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-*/
 
     // HTTP GET request
     private static void sendGet(String url) throws Exception {

@@ -6,13 +6,32 @@
     <title>Docker Workshop - Modifiser Docker</title>
 
     <link rel="stylesheet" href="/webjars/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/webjars/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../style.css"/>
+
 
     <script src="/webjars/jquery/2.2.3/jquery.min.js"></script>
     <script src="/webjars/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#navigation').load('../navbar.html');
+
+            $('.task').each(function() {
+                var $id = $(this).attr("id");
+                var dataElem = {"task": $id};
+                $.ajax({
+                    url: '/check',
+                    data: {
+                        task: $id
+                    }
+                }).done(function(data) {
+                    if(data === "korrekt") {
+                        $('#' + $id).append('<span class="fa fa-check-circle"></span>');
+                    } else {
+                        $('#' + $id).append('<span class="fa fa-times-circle">'+data+'</span>');
+                    }
+                });
+            });
         });
     </script>
 </head>
@@ -32,8 +51,9 @@
     </p>
     <p>
         Hva som skal være inkludert i vårt ferdige docker-image kan styres ved å forandre hvilket image vi baserer oss på.
-        Hittil har vi basert dockerfilen på <a href="https://hub.docker.com/_/alpine/">Alpine</a>, som et ekstremt nedstrippet image.
-        Dette har fordelen at vi får små containere, men den mangler noen grunnleggende ting, for eksempel bash og Java.
+        Hittil har vi basert dockerfilen vår på <a href="https://hub.docker.com/_/alpine/">Alpine</a>, som et ekstremt
+        nedstrippet image. Dette har fordelen at vi får små containere, men den mangler noen grunnleggende ting, for
+        eksempel bash og Java.
     </p>
 
     <h2>a)</h2>
@@ -42,11 +62,10 @@
         ettersom programmet bash ikke finnes i imaget vi baserer oss på.
     </p>
 
-
     <h2>b)</h2>
     <p>
         Bruk Dockers søke-kommando for å finne det offisielle ubuntu-imaget, som inneholder bash, og endre din Dockerfile
-        slik at den baserer seg på dette. Bygg og kjør fra Dockerfile på nytt, og observer at containeren nå har tilgang på bash-programmet,
+        slik at den baserer seg på den nyeste versjonen av dette. Bygg og kjør fra Dockerfile på nytt, og observer at containeren nå har tilgang på bash-programmet,
         og at scriptet blir kjørt!
     </p>
 
@@ -59,6 +78,13 @@
 
         <b>NB: dersom docker har problemer med tilkobling til repositories kan det hjelpe å skru av VPN.</b>
     </p>
+
+    <div id="fremgang">
+        <h2>Fremgang</h2>
+        <div id="2a" class="task">a) </div>
+        <div id="2b" class="task">b) </div>
+        <div id="2c" class="task">c) </div>
+    </div>
 
     <h2>Nyttige lenker</h2>
     <ul>

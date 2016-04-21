@@ -13,6 +13,17 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#navigation').load('../navbar.html');
+
+            $('.task').each(function() {
+                var $id = $(this).attr("id");
+                var dataElem = {"task": $id};
+                $.ajax({
+                    url: '/check',
+                    data: { task: $id }
+                }).done(function(data) {
+                    $('#' + $id).append('<div>'+data+'</div>');
+                });
+            });
         });
     </script>
 </head>
@@ -51,6 +62,12 @@
         og endre pathen for loggene til mappen der du i oppgave 'a)' mountet datavolumet. Under kjøring vil docker nå
         skrive filene til host-filsystemet.
     </p>
+
+    <div id="fremgang">
+        <h2>Fremgang</h2>
+        <div id="9a" class="task">a) </div>
+        <div id="9b" class="task">b) </div>
+    </div>
 
     <h2>Nyttige Lenker</h2>
     <a href="https://docs.docker.com/engine/userguide/containers/dockervolumes/">Docker Volumes</a>

@@ -13,6 +13,17 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#navigation').load('../navbar.html');
+
+            $('.task').each(function() {
+                var $id = $(this).attr("id");
+                var dataElem = {"task": $id};
+                $.ajax({
+                    url: '/check',
+                    data: { task: $id }
+                }).done(function(data) {
+                    $('#' + $id).append('<div>'+data+'</div>');
+                });
+            });
         });
     </script>
 </head>
@@ -39,6 +50,12 @@
     <p>
         Kjør programmet på flere noder.
     </p>
+
+    <div id="fremgang">
+        <h2>Fremgang</h2>
+        <div id="8a" class="task">a) </div>
+        <div id="8b" class="task">b) </div>
+    </div>
 
     <h2>Nyttige lenker</h2>
     <ul>
