@@ -51,9 +51,9 @@
     </p>
     <p>
         Hva som skal være inkludert i vårt ferdige docker-image kan styres ved å forandre hvilket image vi baserer oss på.
-        Hittil har vi basert dockerfilen vår på <a href="https://hub.docker.com/_/alpine/">Alpine</a>, som et ekstremt
-        nedstrippet image. Dette har fordelen at vi får små containere, men den mangler noen grunnleggende ting, for
-        eksempel bash og Java.
+        Hittil har vi basert dockerfilen vår på <a href="https://hub.docker.com/_/alpine/">Alpine</a>, som er en ekstremt
+        nedstrippet linux-versjon. Dette har fordelen at vi får små containere, men den mangler noen grunnleggende ting,
+        som for eksempel Bash og Java.
     </p>
 
     <h2>a)</h2>
@@ -65,13 +65,13 @@
     <h2>b)</h2>
     <p>
         Bruk Dockers søke-kommando for å finne det offisielle ubuntu-imaget, som inneholder bash, og endre din Dockerfile
-        slik at den baserer seg på den nyeste versjonen av dette. Bygg og kjør fra Dockerfile på nytt, og observer at containeren nå har tilgang på bash-programmet,
-        og at scriptet blir kjørt!
+        slik at den baserer seg på den nyeste versjonen av dette. Bygg og kjør fra Dockerfile på nytt, og observer at
+        containeren nå har tilgang på bash-programmet, og at scriptet blir kjørt når containeren starter opp!
     </p>
 
     <h2>c)</h2>
     <p>
-        Det er også mulig å modifisere imaget ved å installere pakker. Bruk Ubuntus package manager APT via RUN-kommandoen
+        Det er også mulig å modifisere imaget ved å installere ekstra pakker. Bruk Ubuntus package manager APT via RUN-kommandoen
         i Dockerfile til å installere pakken "curl". Denne blir da installert under byggingen av imaget, og vil være
         tilgjengelig når containeren startes. Endre også Dockerfilen slik at den kjører &ltcurl -L www.google.com&gt
         ved oppstart.

@@ -38,9 +38,17 @@
 
     <h1>Lage egne Docker images</h1>
     <p>
-        Å kjøre ferdig-lagde images som hello-world fra installasjonsguiden er jo fint og flott, men for at ting skal bli
-        virkelig spennende må man lage sine egne images! Endre Dockerfile i mappen docker, slik at containeren kjører
-        linux-kommandoen "echo" med argumentet "Hello World, this is Docker!" når den starter opp.
+        Å kjøre ferdig-lagde images som hello-world i eksempelet fra installasjonsguiden er jo fint og flott, men for at
+        ting skal bli virkelig spennende må man lage sine egne images! Måten man bygger images på i Docker er å lage en
+        dockerfil med instruksjoner, som som utføres under byggingen av imaget (et kjent konsept for de av dere som har
+        brukt Makefiles!).
+    </p>
+
+    <h2>Oppgave</h2>
+    <p>
+        Endre filen 'Dockerfile' i mappen 'docker', slik at containeren vil kjøre linux-kommandoen "echo" med argumentet
+        "Hello World, this is Docker!" når den starter opp. Bruk Dockers bygge-kommando for å utføre instruksjonene i
+        Dockerfile for å bygge imaget.
     </p>
 
     <h2>Nyttige lenker</h2>

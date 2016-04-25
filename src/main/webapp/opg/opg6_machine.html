@@ -6,6 +6,7 @@
     <title>Docker Workshop - Machine</title>
 
     <link rel="stylesheet" href="/webjars/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/webjars/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../style.css"/>
 
     <script src="/webjars/jquery/2.2.3/jquery.min.js"></script>
@@ -19,9 +20,17 @@
                 var dataElem = {"task": $id};
                 $.ajax({
                     url: '/check',
-                    data: { task: $id }
+                    data: {
+                        task: $id
+                    }
                 }).done(function(data) {
-                    $('#' + $id).append('<div>'+data+'</div>');
+                    if(data === "korrekt") {
+                        $('#' + $id).append('<span class="fa fa-check-circle"></span>');
+                    } else {
+                        $('#' + $id).append('<span class="fa fa-times-circle">'+data+'</span>');
+                    }
+                }).fail(function(error) {
+                    console.log("Failure while retrieving task progression: " + error);
                 });
             });
         });
@@ -38,13 +47,18 @@
     <h1>Docker Machine</h1>
     <p>
         Som vi så i forrige oppgave er docker-apper fine og portable, men å lagre til fil og flytte de rundt manuelt
-        er ikke hverken smidig eller praktisk, og skalerer dårlig til store systemer. Docker-machine kan brukes for å
-        automatisere dette.
-
-
+        er hverken smidig eller praktisk, og skalerer dårlig til større systemer. Docker-Machine kan brukes for å
+        forenkle distribusjonen av docker-images til eksterne servere, og også til å automatisere denne prosessen.
     </p>
+
     <h2>a)</h2>
-    <p>Todo: opprett en docker-machine</p>
+    <p>
+        Bruk Docker-Machine for å lage en machine som kan kjøre docker-containere lokalt i Virtualbox.
+    </p>
+    <p>
+        Tips: en oversikt over tilgjengelige docker-machines (både lokalt og remote) kan finnes med kommandoen 'docker-machine ls'.
+        'docker info &ltmachine-navn&gt viser informasjon om maskinen.
+    </p>
 
     <h2>b)</h2>
     <p>
@@ -55,24 +69,34 @@
         opp imaget laget i forrige oppgave.
     </p>
 
-    <h2>b)</h2>
+    <h2>c)</h2>
     <p>
-        Bruk docker-machines innebygde ssh-kommando til å logge inn på serveren. Her kan man bruke samme docker-kommandoer
-        som lokalt, for å verifisere at docker-containeren kjører!
+        Bruk docker-machines innebygde ssh-kommando til å logge inn på serveren. Logget inn på docker-machinen kan man bruke
+        samme docker-kommandoer som lokalt, for å verifisere at docker-containeren kjører! Prøv f.eks 'docker images' og
+        'docker ps'.
     </p>
 
     <div id="fremgang">
         <h2>Fremgang</h2>
         <div id="6a" class="task">a) </div>
         <div id="6b" class="task">b) </div>
+        <div id="6c" class="task">b) </div>
     </div>
 
     <h2>Nyttige lenker</h2>
     <ul>
         <li><a href="https://docs.docker.com/machine/overview/">DockerMachine konsept</a></li>
+        <li><a href="https://docs.docker.com/machine/get-started/">DockerMachine - lokalt</a></li>
         <li><a href="https://docs.docker.com/machine/get-started-cloud/">DockerMachine - Cloud</a></li>
         <li><a href="https://docs.docker.com/machine/examples/aws/">AWS EC2 example</a> </li>
     </ul>
+
+    <h3>Annen info</h3>
+    <p>
+        Docker har også sitt eget kontrollpanel, <a href="https://docs.docker.com/ucp/">Docker Universal Control Plane</a>,
+        som kan brukes for å deploye og kontrollere docker-applikasjoner. Dette verktøyet er dog fortsatt i utvikling og
+        er ikke nødvendigvis modent for bruk i produksjon.
+    </p>
 
 </div>
 

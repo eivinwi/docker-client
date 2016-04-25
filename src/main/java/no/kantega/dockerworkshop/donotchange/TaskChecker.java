@@ -11,9 +11,7 @@ import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Stream;
 
 /**
@@ -192,10 +190,11 @@ public class TaskChecker {
             case "4": //sjekkes i TaskController, bør ikke komme hit
                 return "feil";
             case "5": return "sjekk ikke implementert";
-            case "6a": return "sjekk ikke implementert";
-            case "6b": return "sjekk ikke implementert";
+            case "6a": return checkTask6a();
+            case "6b": return checkTask6b();
+            case "6c": return checkTask6c();
             case "7": return "sjekk ikke implementert";
-            case "8a": return "sjekk ikke implementert";
+            case "8a": return checkTask8a();
             case "8b": return "sjekk ikke implementert";
             case "9a": return "sjekk ikke implementert";
             case "9b": return "sjekk ikke implementert";
@@ -267,15 +266,80 @@ public class TaskChecker {
     }
 
     private String checkTask6a() {
-        return "feil";
+        return task6Common("virtualbox");
     }
 
     private String checkTask6b() {
-        List<String> feedback = runCommand("docker-machine ls");
-        if(feedback.size() < 2) {
+        return task6Common("digitalocean");
+    }
+
+    private String checkTask6c() {
+        return "sjekk ikke implementert";
+    }
+
+    private String task6Common(String driver) {
+        List<String> machines = runCommand("docker-machine ls");
+        if(machines.size() < 2) {
+            return "Ingen docker-machines er opprettet";
+        }
+        machines.remove(0); //fjerner kolonne med rad-beskrivelser
+
+        for(String machine : machines) {
+            String[] s = machine.split("\\s+");
+            if(s.length < 3) {
+                System.err.println("Misshaped line: " + machine);
+            } else {
+                if(driver.equalsIgnoreCase(s[2])) {
+                    return "korrekt";
+                }
+            }
+        }
+        return "Ingen docker-machine som kjører på " + driver + " er opprettet";
+    }
+
+    private String checkTask8a() {
+        List<String> machines = runCommand("docker-machine ls");
+        if(machines.size() < 2) {
             return "Ingen docker-machines er opprettet.";
         }
+        if(machines.size() < 5) {
+            return "Det er ikke opprettet nok docker-machines enda!";
+        }
 
-        return "korrekt";
+        int masters = 0;
+        String masterSwarm = "";
+        Map<String, Integer> map = new HashMap<>();
+        for(String machine : machines) {
+            String[] s = machine.split("\\s+");
+            if(s.length < 6) {
+                System.err.println("Misshaped line: " + machine);
+            } else {
+                String swarm = s[5];
+
+                if(swarm != null && !swarm.isEmpty()) {
+                    if(!map.containsKey(swarm)) {
+                        map.put(swarm, 1);
+                    } else {
+                        Integer count  = map.get(swarm);
+                        map.put(swarm, count+1);
+                    }
+
+                    if(s[6] != null && s[6].contains("master")) {
+                        masters++;
+                        masterSwarm = s[5];
+                    }
+                }
+            }
+        }
+        if(masters < 1 || masterSwarm == null || masterSwarm.isEmpty()) {
+            return "Swarmen mangler en swarm master.";
+        }
+
+        for(Map.Entry<String, Integer> entry : map.entrySet()) {
+            if(entry.getValue() > 3 && masterSwarm.equals(entry.getKey())) {
+                return "korrekt";
+            }
+        }
+        return "Ingen swarm med en swarm master og 3 eller flere noder finnes.";
     }
 }

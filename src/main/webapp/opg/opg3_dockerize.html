@@ -6,6 +6,7 @@
     <title>Docker Workshop - Dockerize</title>
 
     <link rel="stylesheet" href="/webjars/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/webjars/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../style.css"/>
 
     <script src="/webjars/jquery/2.2.3/jquery.min.js"></script>
@@ -13,15 +14,24 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#navigation').load('../navbar.html');
-        });
-        $('.task').each(function() {
-            var $id = $(this).attr("id");
-            var dataElem = {"task": $id};
-            $.ajax({
-                url: '/check',
-                data: { task: $id }
-            }).done(function(data) {
-                $('#' + $id).append('<div>'+data+'</div>');
+
+            $('.task').each(function() {
+                var $id = $(this).attr("id");
+                var dataElem = {"task": $id};
+                $.ajax({
+                    url: '/check',
+                    data: {
+                        task: $id
+                    }
+                }).done(function(data) {
+                    if(data === "korrekt") {
+                        $('#' + $id).append('<span class="fa fa-check-circle"></span>');
+                    } else {
+                        $('#' + $id).append('<span class="fa fa-times-circle">'+data+'</span>');
+                    }
+                }).fail(function(error) {
+                    console.log("Failure while retrieving task progression: " + error);
+                });
             });
         });
     </script>

@@ -37,15 +37,24 @@
 <div class="container">
     <h1>Docker volumer og databaser</h1>
     <p>
-        Ettersom docker-containere blir borte når de stoppes, er de ut av boksen særdeles lite egnet til å kjøre databaser.
+        Databaser har i utgangspunktet det samme problemet som logg-filer når de kjøres i docker-containere, nemlig at de
+        blir borte når containeren stoppes. Heldigvis finnes det spesiallagde images for databaser, og Docker Hub innneholder
+        versjoner for de fleste populære dialekter som MySQL, PostgreSQL og MongoDB etc. Om ingen av imagene på Hub passer ens bruk,
+        eller man av andre grunner ikke ønsker å bruke de offisielle imagene er det også fint mulig å lage dem selv. To eksempler
+        på dette er lenket under.
+    </p>
 
-        TODO.
 
-        Docker Hub har offisielle images av de fleste populære databaser som for eksempel MySQL, PostgreSQL og MongoDB.
+    <p>
+        For større systemer kan man også benytte seg av mer avanserte løsninger for data-volume managment i docker som f.eks
+        <a href="https://clusterhq.com/flocker/introduction/">Flocker</a>.
     </p>
 
     <ul>
-        <li><a href="https://docs.docker.com/engine/userguide/containers/dockervolumes/">Docker Docs - Volumes</a> </li>
+        <li><a href="https://docs.docker.com/engine/userguide/containers/dockervolumes/">Docker Docs - Volumes</a></li>
+        <li><a href="https://docs.docker.com/engine/examples/postgresql_service/">Dockerizing PostgreSQL</a></li>
+        <li><a href="https://docs.docker.com/engine/examples/mongodb/">Dockerizing MongoDB</a> </li>
+
     </ul>
 
 </div>

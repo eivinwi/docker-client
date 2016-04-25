@@ -37,18 +37,25 @@
 <div class="container">
     <h1>Lage clustere med Docker Swarm</h1>
     <p>
-
+        En Docker Swarm er et cluster av docker-machines, der <b>noder</b> blir styrt av en (eller flere) <b>Swarm manager(e)</b>.
+        Dette er en form for abstraksjon, og sett utenfra er en swarm manager ekvivalent med en normal docker machine. Forskjellen
+        er at manageren automatisk kan fordele containere på de nodene som til enhver tid har mest ledig kapasitet, og gjør
+        det lettere å skalere en applikasjon. En Swarm kan enkelt utvides med flere noder etter behov.
     </p>
 
     <h2>a)</h2>
     <p>
-        Bruk docker-machine til å lage en Swarm med 2-3 noder og en Swarm Manager. Bruk "docker info" på swarm-manageren
-        for å se status, med bl.a. hvor mange noder den inneholder.
+        Bruk docker-machine til å lage en Swarm med minst 3 noder og en Swarm Manager.
+    </p>
+    <p>
+        Tips: bruk "docker info" på swarm-manageren for å se dens status, med bl.a. hvor mange noder den inneholder,
+        nodenes IP osv.
+        Tips: kopier og lagre Swarm-token etter den har blitt generert! Den trengs for å interaktere med clusteret.
     </p>
 
     <h2>b)</h2>
     <p>
-        Kjør programmet på flere noder.
+        Todo: et program det er meningsfullt å kjøre på flere noder.
     </p>
 
     <div id="fremgang">
