@@ -46,14 +46,13 @@ public class TeamController implements InitializingBean {
 
     @RequestMapping(value = "/test")
     @ResponseBody
-    public boolean test(HttpServletRequest request) {
-        boolean test = taskChecker.inspectDockerImage(
+    public String test(HttpServletRequest request) {
+/*        boolean test = taskChecker.inspectDockerImage(
             "testscripts",
             Arrays.asList("Config", "Entrypoint"),
             Arrays.asList("uname", "-a")
-        );
-        System.out.println("It is.... " + test);
-        return test;
+        );*/
+        return "Application is working, your team-name is currently: " + teamName;
     }
 
     @RequestMapping(value = "/apply", method = RequestMethod.POST)
