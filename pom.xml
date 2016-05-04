@@ -78,7 +78,7 @@
                 <version>0.4.3</version>
                 <configuration>
                     <imageName>dockerclient/${project.artifactId}-mvn</imageName>
-                    <dockerDirectory>docker</dockerDirectory>
+                    <dockerDirectory>oppgave_3</dockerDirectory>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
