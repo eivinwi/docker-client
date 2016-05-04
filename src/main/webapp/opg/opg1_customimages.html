@@ -19,9 +19,17 @@
                 var dataElem = {"task": $id};
                 $.ajax({
                     url: '/check',
-                    data: { task: $id }
+                    data: {
+                        task: $id
+                    }
                 }).done(function(data) {
-                    $('#' + $id).append('<div>'+data+'</div>');
+                    if(data === "korrekt") {
+                        $('#' + $id).append('<span class="fa fa-check-circle"></span>');
+                    } else {
+                        $('#' + $id).append('<span class="fa fa-times-circle">'+data+'</span>');
+                    }
+                }).fail(function(error) {
+                    console.log("Failure while retrieving task progression: " + error);
                 });
             });
         });
@@ -50,6 +58,12 @@
         "Hello World, this is Docker!" når den starter opp. Bruk Dockers bygge-kommando for å utføre instruksjonene i
         Dockerfile for å bygge imaget.
     </p>
+
+    <div id="fremgang">
+        <h2>Fremgang</h2>
+        <div id="1" class="task">a) </div>
+    </div>
+
 
     <h2>Nyttige lenker</h2>
     <ul>
