@@ -1,6 +1,8 @@
 package no.kantega.dockerworkshop.main;
 
 import no.kantega.dockerworkshop.donotchange.TaskChecker;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
@@ -21,7 +23,10 @@ public class Main {
 
     public static void main(String[] args) {
         //System.out.println("Hello World!");
+        //Logger logger = LoggerFactory.getLogger(Main.class);
+        //logger.info("DockerClient is starting!");
         SpringApplication.run(Main.class, args);
+        //logger.info("DockerClient shutting down.");
         //loadProperties();
         /*String url = System.getProperty("team.url");
         try {

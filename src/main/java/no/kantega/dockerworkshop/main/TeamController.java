@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.Arrays;
 
 import no.kantega.dockerworkshop.donotchange.TaskChecker;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,6 +28,8 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class TeamController implements InitializingBean {
 
+    //private Logger logger = LoggerFactory.getLogger(Main.class);
+
     @Value("${team.name}")
     private String teamName;
     @Value("${server.url}")
@@ -41,7 +45,7 @@ public class TeamController implements InitializingBean {
     }
 
     public void afterPropertiesSet() {
-        //trengs ikke?
+//        logger.debug("AfterPropertiesSet is reached");
     }
 
     @RequestMapping(value = "/test")
