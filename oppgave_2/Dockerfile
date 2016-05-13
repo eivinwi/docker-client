@@ -1,2 +1,3 @@
-# Implementer oppgave 2 her
 FROM alpine:latest
+ADD checkJava.sh /
+CMD ["sh", "./checkJava.sh"]
