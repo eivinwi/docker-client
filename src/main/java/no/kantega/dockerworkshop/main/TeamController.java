@@ -32,7 +32,7 @@ public class TeamController implements InitializingBean {
 
     @Value("${team.name}")
     private String teamName;
-    @Value("${server.url}")
+    //@Value("${server.url}")
     private String url;
 
     private String name;
